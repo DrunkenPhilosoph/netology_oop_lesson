@@ -125,10 +125,8 @@ cool_reviewer.courses_attached += ['Git']
 cool_lecturer = Lecturer('John', 'Smith')
 cool_lecturer_two = Lecturer('Stein', 'Silver')
 cool_lecturer_two.courses_attached += ['Python']
-cool_lecturer_two.courses_attached += ['JS']
 cool_lecturer_two.courses_attached += ['Git']
 cool_lecturer.courses_attached += ['Python']
-cool_lecturer.courses_attached += ['JS']
 cool_lecturer.courses_attached += ['Git']
 
 best_student.add_raring_lecturer(cool_lecturer, 'Python', 5)
@@ -137,10 +135,10 @@ best_student.add_raring_lecturer(cool_lecturer, 'Python', 10)
 best_student_two.add_raring_lecturer(cool_lecturer, 'Python', 9)
 best_student.add_raring_lecturer(cool_lecturer, 'Python', 6)
 best_student_two.add_raring_lecturer(cool_lecturer, 'Python', 1)
-best_student.add_raring_lecturer(cool_lecturer, 'JS', 6)
-best_student_two.add_raring_lecturer(cool_lecturer, 'JS', 2)
-best_student.add_raring_lecturer(cool_lecturer, 'JS', 6)
-best_student_two.add_raring_lecturer(cool_lecturer, 'JS', 10)
+best_student.add_raring_lecturer(cool_lecturer, 'Git', 6)
+best_student_two.add_raring_lecturer(cool_lecturer, 'Git', 2)
+best_student.add_raring_lecturer(cool_lecturer, 'Git', 6)
+best_student_two.add_raring_lecturer(cool_lecturer, 'Git', 10)
 
 best_student.add_raring_lecturer(cool_lecturer_two, 'Python', 5)
 best_student_two.add_raring_lecturer(cool_lecturer_two, 'Python', 10)
@@ -148,8 +146,8 @@ best_student.add_raring_lecturer(cool_lecturer_two, 'Python', 4)
 best_student_two.add_raring_lecturer(cool_lecturer_two, 'Python', 5)
 best_student.add_raring_lecturer(cool_lecturer_two, 'Python', 6)
 best_student_two.add_raring_lecturer(cool_lecturer_two, 'Python', 1)
-best_student.add_raring_lecturer(cool_lecturer_two, 'JS', 1)
-best_student_two.add_raring_lecturer(cool_lecturer_two, 'JS', 6)
+best_student.add_raring_lecturer(cool_lecturer_two, 'Git', 1)
+best_student_two.add_raring_lecturer(cool_lecturer_two, 'Git', 6)
 
 cool_reviewer.rate_hw(best_student, 'Python', 10)
 cool_reviewer.rate_hw(best_student_two, 'Python', 2)
@@ -172,6 +170,8 @@ cool_reviewer.rate_hw(best_student_two, 'Git', 1)
 
 lst_students = [best_student, best_student_two]
 print(all_grade_students('Python', lst_students))
+print(all_grade_students('Git', lst_students))
 
 lst_lectors = [cool_lecturer, cool_lecturer_two]
 print(all_grade_lectors('Python', lst_lectors))
+print(all_grade_lectors('Git', lst_lectors))
