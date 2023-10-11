@@ -71,7 +71,6 @@ class Lecturer(Mentor):
         avg = sum(tmp) / len(tmp)
         return avg
 
-
 class Reviewer(Mentor):
     def __init__(self, name, surname):
         super().__init__(name, surname)
@@ -88,6 +87,27 @@ class Reviewer(Mentor):
         else:
             return 'Ошибка'
 
+def all_grade_students(course, student_list):
+    tmp_list = []
+    for student in student_list:
+        if course in student.grades.keys():
+            for grade in student.grades[course]:
+                tmp_list.append(grade)
+        else:
+            print(f'У студента {student.name} нет курса {course}')
+    avg_grade = sum(tmp_list) / len(tmp_list)
+    return f"Средняя оценка за курс {course} у студентов: {avg_grade}"
+
+def all_grade_lectors(course, lectors_list):
+    tmp_list = []
+    for student in lectors_list:
+        if course in student.grades.keys():
+            for grade in student.grades[course]:
+                tmp_list.append(grade)
+        else:
+            print(f'У лектора {student.name} нет курса {course}')
+    avg_grade = sum(tmp_list) / len(tmp_list)
+    return f"Средняя оценка за курс {course} у лектора: {avg_grade}"
 
 best_student = Student('Ruoy', 'Eman', 'Male')
 best_student_two = Student('Erman', 'Chekovskiy', 'Male')
@@ -132,7 +152,7 @@ best_student.add_raring_lecturer(cool_lecturer_two, 'JS', 1)
 best_student_two.add_raring_lecturer(cool_lecturer_two, 'JS', 6)
 
 cool_reviewer.rate_hw(best_student, 'Python', 10)
-cool_reviewer.rate_hw(best_student_two, 'Python', 10)
+cool_reviewer.rate_hw(best_student_two, 'Python', 2)
 cool_reviewer.rate_hw(best_student, 'Python', 3)
 cool_reviewer.rate_hw(best_student_two, 'Python', 4)
 cool_reviewer.rate_hw(best_student, 'Python', 1)
@@ -145,9 +165,13 @@ cool_reviewer.rate_hw(best_student, 'Git', 1)
 cool_reviewer.rate_hw(best_student_two, 'Git', 1)
 
 # print(best_student.grades)
-print(cool_lecturer == cool_lecturer_two)
-# print(best_student.grades)
+# print(cool_lecturer == cool_lecturer_two)
 # print(cool_reviewer)
 # print(cool_lecturer.grades)
-
 # print(best_student_two)
+
+lst_students = [best_student, best_student_two]
+print(all_grade_students('Python', lst_students))
+
+lst_lectors = [cool_lecturer, cool_lecturer_two]
+print(all_grade_lectors('Python', lst_lectors))
